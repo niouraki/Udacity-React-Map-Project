@@ -1,0 +1,29 @@
+.main-container {
+  display: grid;
+  grid-template-columns: 0% 100%;
+}
+.navbar {
+  display: block;
+  width: 100%;
+  padding: 1px;
+  background: #415a77;
+  text-align: center;
+  color: #e0e1dd;
+  order: 2;
+}
+.panel-container {
+  display: block;
+  width: 100%;
+  background: #1b263b;
+  color: #e0e1dd;
+  text-align: center;
+  order: 1;
+}
+
+/* Media Queries */
+@media screen and (min-width: 1000px) {
+  .main-container {
+    display: grid;
+    grid-template-columns: 20% 80%;
+  }
+}
