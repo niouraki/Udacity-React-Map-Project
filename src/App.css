@@ -31,4 +31,7 @@
     display: grid;
     grid-template-columns: 20% 80%;
   }
+  .map-container {
+    margin-left: 20%;
+  }
 }
