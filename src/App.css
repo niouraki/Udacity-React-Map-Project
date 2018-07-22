@@ -19,6 +19,11 @@
   text-align: center;
   order: 1;
 }
+.map-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
 
 /* Media Queries */
 @media screen and (min-width: 1000px) {
