@@ -1,37 +1,44 @@
 .main-container {
   display: grid;
-  grid-template-columns: 0% 100%;
+  grid-template-columns: 20% 100%;
 }
 .navbar {
   display: block;
   width: 100%;
-  padding: 1px;
+  padding: 7px;
   background: #415a77;
   text-align: center;
   color: #e0e1dd;
-  order: 2;
 }
 .panel-container {
-  display: block;
-  width: 100%;
+  width: 20%;
+  height: 91%;
   background: #1b263b;
   color: #e0e1dd;
   text-align: center;
-  order: 1;
+  position: absolute;
+  bottom: 0;
+  border: 1px solid #e0e1dd;
+  border-radius: 8px;
 }
 .map-container {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 91%;
+  left: 20%;
+  bottom: 0;
+  border: 1px solid #e0e1dd;
 }
-
-/* Media Queries */
+.button {
+  font-size: 20px;
+}
+/* Media Queries
 @media screen and (min-width: 1000px) {
   .main-container {
     display: grid;
     grid-template-columns: 20% 80%;
   }
   .map-container {
-    margin-left: 20%;
+    left: 20%;
   }
-}
+}*/
