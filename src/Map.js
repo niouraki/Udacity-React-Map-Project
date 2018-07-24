@@ -1,99 +1,24 @@
 import React from 'react'
-import { GoogleMap, withGoogleMap, Marker } from 'react-google-maps'
-
+import { GoogleMap, withGoogleMap, Marker, InfoWindow } from 'react-google-maps'
+import MyMarker from './Marker'
 class MyMap extends React.Component {
-  //constructor(props) {
-    //super(props)
-
-    //this.state = {
-      //markerArray: [
-      //{ title: 'Castle',
-        //name: 'Castle',
-        //position: {lat: 36.544184, lng: 26.355147 },
-        //defaultAnimation: google.maps.Animation.BOUNCE
-      //},{
-        //title: 'Livadi Beach',
-        //name: 'Livadi Beach',
-        //position: { lat: 36.542624, lng: 26.343044 },
-        //defaultAnimation: google.maps.Animation.BOUNCE
-      //},{
-        //title: 'Kolokitha Cafe',
-        //name: 'Kolokitha Cafe',
-      //  position: { lat: 36.547431, lng: 26.353457 },
-        //defaultAnimation: google.maps.Animation.BOUNCE,
-      //},{
-        //title: 'Museum',
-        //name: 'Museum',
-        //position: { lat: 36.548635, lng: 26.352456 },
-        //defaultAnimation: google.maps.Animation.BOUNCE
-      //},{
-        //title: 'Camping Site',
-        //name: 'Camping Site',
-        //position: { lat: 36.560073, lng: 26.354186 },
-        //defaultAnimation: google.maps.Animation.BOUNCE
-      //}, {
-        //title: 'Infant cemetery',
-        //name: 'Infant cemetery',
-        //position: { lat: 36.543922, lng: 26.35386 },
-        //defaultAnimation: google.maps.Animation.BOUNCE
-      //},{
-        //title: 'Water dam',
-        //name: 'Water dam',
-        //position: { lat: 36.551069, lng: 26.327439 },
-        //defaultAnimation: google.maps.Animation.BOUNCE
-      //}
-      //]
-    //}
-  //}
   render() {
     const google = window.google
     const GoogleMapIsland = withGoogleMap(props => (
        <GoogleMap
           defaultCenter = {{ lat: 36.547583, lng: 26.345321 }}
-          defaultZoom={ 13 }
+          defaultZoom={ 12.5 }
       >
-      <Marker
-          title={'Castle'}
-          name={'Castle'}
-          position={{ lat: 36.544184, lng: 26.355147 }}
-          defaultAnimation={google.maps.Animation.BOUNCE}
-      />
-      <Marker
-          title={'Livadi Beach'}
-          name={'Livadi Beach'}
-          position={{ lat: 36.542624, lng: 26.343044 }}
-          defaultAnimation={google.maps.Animation.BOUNCE}
-      />
-      <Marker
-          title={'Kolokitha Cafe'}
-          name={'Kolokitha Cafe'}
-          position={{ lat: 36.547431, lng: 26.353457 }}
-          defaultAnimation={google.maps.Animation.BOUNCE}
-      />
-      <Marker
-          title={'Museum'}
-          name={'Museum'}
-          position={{ lat: 36.548635, lng: 26.352456 }}
-          defaultAnimation={google.maps.Animation.BOUNCE}
-      />
-      <Marker
-          title={'Camping Site'}
-          name={'Camping Site'}
-          position={{ lat: 36.560073, lng: 26.354186 }}
-          defaultAnimation={google.maps.Animation.BOUNCE}
-      />
-      <Marker
-          title={'Infant cemetery'}
-          name={'Infant cemetery'}
-          position={{ lat: 36.543922, lng: 26.35386 }}
-          defaultAnimation={google.maps.Animation.BOUNCE}
-      />
-      <Marker
-          title={'Water dam'}
-          name={'Water dam'}
-          position={{ lat: 36.551069, lng: 26.327439 }}
-          defaultAnimation={google.maps.Animation.BOUNCE}
-      />
+        <MyMarker position={{ lat: 36.544206, lng: 26.355205 }} content="Castle" animation={google.maps.Animation.BOUNCE}/>
+        <MyMarker position={{ lat: 36.542438, lng: 26.343119 }} content="Livadi Beach" animation={google.maps.Animation.BOUNCE}/>
+        <MyMarker position={{ lat: 36.54743, lng: 26.353549 }} content="Kolokitha Cafe" animation={google.maps.Animation.BOUNCE}/>
+        <MyMarker position={{ lat: 36.548651, lng: 26.352387 }} content="Museum" animation={google.maps.Animation.BOUNCE}/>
+        <MyMarker position={{ lat: 36.560076, lng: 26.353936 }} content="Camping Site" animation={google.maps.Animation.BOUNCE}/>
+        <MyMarker position={{ lat: 36.543823, lng: 26.353998 }} content="Infant Cemetery" animation={google.maps.Animation.BOUNCE}/>
+        <MyMarker position={{ lat: 36.551026, lng: 26.328218 }} content="Water Dam" animation={google.maps.Animation.BOUNCE}/>
+        <MyMarker position={{ lat: 36.545627, lng: 26.351948}} content="Windmills" animation={google.maps.Animation.BOUNCE}/>
+        <MyMarker position={{ lat: 36.53065, lng: 26.46749}} content="Kounoupes Beach" animation={google.maps.Animation.BOUNCE}/>
+        <MyMarker position={{ lat: 36.576634, lng: 26.384324}} content="Maltezana Village" animation={google.maps.Animation.BOUNCE}/>
     </GoogleMap>
       ))
       return(
@@ -109,14 +34,3 @@ class MyMap extends React.Component {
   }
 }
 export default MyMap
-    //{props.markerArray.map((marker, index) => {
-    //  return(
-          //<Marker
-          //  key={index}
-            //title={title}
-          //  name={name}
-          //  position={position}
-          //  defaultAnimation= {google.maps.Animation.BOUNCE}
-        //  />
-    //  )
-  //  })}
