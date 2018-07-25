@@ -31,20 +31,17 @@
 }
 .button {
   font-size: 18px;
-}
-.show-places, .hide-places {
-  width: 48%;
+  text-decoration: none;
+  background: #1b263b;
+  border: none;
+  color: #e0e1dd;
   padding: 10px;
-  font-size: 20px;
+  cursor: pointer;
+  width: 100%;
+}
+.button:hover {
   background: #e0e1dd;
   color: #1b263b;
-  border-radius: 5px
-}
-.show-places:hover {
-  padding: 5px;
-}
-.hide-places:hover {
-  padding: 5px;
 }
 /* Media Queries
 @media screen and (min-width: 1000px) {

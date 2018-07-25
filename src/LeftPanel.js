@@ -4,28 +4,26 @@ function LeftPanel() {
   return(
   <div className="panel-container">
     <h2 className="my-places">Places of Interest</h2>
-    <input className="show-places" type="button" value="Show Places"/>
-    <input className="hide-places" type="button" value="Hide Places"/>
     <hr/>
-    <p className="button">Castle</p>
+    <input className="button" type="button" value="Castle"/>
     <hr/>
-    <p className="button">Livadi Beach</p>
+    <input className="button" type="button" value="Livadi Beach"/>
     <hr/>
-    <p className="button">Kolokitha Cafe</p>
+    <input className="button" type="button" value="Kolokitha Cafe"/>
     <hr/>
-    <p className="button">Museum</p>
+    <input className="button" type="button" value="Museum"/>
     <hr/>
-    <p className="button">Camping Site</p>
+    <input className="button" type="button" value="Camping Site"/>
     <hr/>
-    <p className="button">Infant Cemetery</p>
+    <input className="button" type="button" value="Infant Cemetery"/>
     <hr/>
-    <p className="button">Water Dam</p>
+    <input className="button" type="button" value="Water Dam"/>
     <hr/>
-    <p className="button">Windmills</p>
+    <input className="button" type="button" value="Windmills"/>
     <hr/>
-    <p className="button">Kounoupes Beach</p>
+    <input className="button" type="button" value="Kounoupes Beach"/>
     <hr/>
-    <p className="button">Maltezana Village</p>
+    <input className="button" type="button" value="Maltezana Village"/>
     <hr/>
   </div>
   )
