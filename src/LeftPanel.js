@@ -1,6 +1,6 @@
 import React from 'react'
 
-function LeftPanel() {
+function LeftPanel(props) {
   return(
   <div className="panel-container">
     <h2 className="my-places">Places of Interest</h2>
