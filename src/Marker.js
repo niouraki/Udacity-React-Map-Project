@@ -24,7 +24,15 @@ class MyMarker extends React.Component {
       >
       {this.state.isOpen &&
         <InfoWindow onCloseClick={this.onToggleOpen}>
-          <span>{this.props.content}</span>
+        <div>
+          <div className="marker-name">{this.props.title}</div>
+          <div>{this.props.content}</div>
+          <div>
+          <button className="photo-button" onClick={this.props.prev}>Prev</button>
+          <button className="photo-button" onClick={this.props.next}>Next</button>
+          </div>
+          <div className ="source">Source: Flickr</div>
+        </div>
         </InfoWindow>
       }
       </Marker>

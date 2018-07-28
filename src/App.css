@@ -43,6 +43,20 @@
   background: #e0e1dd;
   color: #1b263b;
 }
+.marker-name {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+.source {
+  text-align: center;
+  font-size: 17px;
+}
+.photo-button {
+  position: relative;
+  left: 40%;
+  margin: 5px;
+}
 /* Media Queries
 @media screen and (min-width: 1000px) {
   .main-container {
