@@ -88,7 +88,6 @@ class App extends Component {
             title={marker.title}
             animation={google.maps.Animation.BOUNCE}
             onClick={() => this.onToggleOpen(index)}
-            openMarker={this.state.openMarker}
           >
           {(this.state.openMarker === marker.id) &&
             (<InfoWindow onCloseClick={this.onToggleOpen}>
@@ -110,6 +109,7 @@ class App extends Component {
     return (
       <div className="App">
           <Navbar
+            markers={this.state.markers}
             onToggleOpen={this.onToggleOpen}
           />
         <div className="main-container">
