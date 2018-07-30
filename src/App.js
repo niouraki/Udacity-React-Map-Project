@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import { GoogleMap, withGoogleMap } from 'react-google-maps'
+import { GoogleMap, withGoogleMap, Marker, InfoWindow } from 'react-google-maps'
 import Navbar from './Navbar'
-import LeftPanel from './LeftPanel'
-import MyMarker from './Marker'
 
 class App extends Component {
   constructor(props) {
@@ -22,12 +20,16 @@ class App extends Component {
         { id: 9, position: { lat: 36.53065, lng: 26.46749 }, title: "Kounoupes Beach"},
         { id: 10, position: { lat: 36.576634, lng: 26.384324 }, title: "Maltezana Village" }
       ],
+      isOpen: false,
       pictures: [],
       indexValue: 0
     }
     this.NextPhoto = this.NextPhoto.bind(this)
     this.PrevPhoto = this.PrevPhoto.bind(this)
+    this.onToggleOpen = this.onToggleOpen.bind(this)
   }
+
+  //Deals with the external API call from flickr
   componentDidMount() {
     fetch('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=4730619e90f6124fa7ff46c19c600709&tags=Astypalaia,Astipalea&per_page=50&format=json&nojsoncallback=1')
       .then(function(response) {
@@ -48,7 +50,7 @@ class App extends Component {
   NextPhoto = () => {
     var currentIndex = this.state.indexValue
     if(currentIndex === 50) {
-      currentIndex === 0
+      currentIndex = 0
     } else {
       currentIndex++
     }
@@ -58,11 +60,16 @@ class App extends Component {
   PrevPhoto = () => {
     var currentIndex = this.state.indexValue
     if(currentIndex === 0) {
-      currentIndex === 50
+      currentIndex = 50
     } else {
       currentIndex--
     }
     this.setState({ indexValue : currentIndex })
+  }
+  onToggleOpen = () => {
+    this.setState({
+      isOpen: !this.state.isOpen,
+    })
   }
   render() {
     const google = window.google
@@ -73,24 +80,36 @@ class App extends Component {
       >
         {this.state.markers.map((marker) => {
           return(
-          <MyMarker
+          <Marker
             key={marker.id}
             position={marker.position}
             title={marker.title}
-            content={this.state.pictures[this.state.indexValue]}
             animation={google.maps.Animation.BOUNCE}
-            next={this.NextPhoto}
-            prev={this.PrevPhoto}
-          />
+            onClick={this.onToggleOpen}
+          >
+          {(this.state.isOpen) &&
+            (<InfoWindow onCloseClick={this.onToggleOpen}>
+            <div>
+              <div className="marker-name">{marker.title}</div>
+              <div>{this.state.pictures[this.state.indexValue]}</div>
+              <div>
+              <button className="photo-button" onClick={this.PrevPhoto}>Prev</button>
+              <button className="photo-button" onClick={this.NextPhoto}>Next</button>
+              </div>
+              <div className="source">Images Source: Flickr</div>
+            </div>
+            </InfoWindow>)
+          }
+          </Marker>
         )})}
     </GoogleMap>
       ))
     return (
       <div className="App">
-          <Navbar/>
-        <div className="main-container">
-          <LeftPanel
+          <Navbar
+            onToggleOpen={this.onToggleOpen}
           />
+        <div className="main-container">
           <div className='map-container'>
           <GoogleMapIsland
           loadingElement={<div style={{height: '100%'}}/>}

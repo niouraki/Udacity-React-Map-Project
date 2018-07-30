@@ -57,6 +57,44 @@
   left: 40%;
   margin: 5px;
 }
+
+/*Burger Styling*/
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+}
+.bm-burger-bars {
+  background: #e0e1dd;
+}
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+.bm-cross {
+  background: #e0e1dd;
+}
+.bm-menu {
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+/*End of burger styling*/
+#mySearch {
+  padding: 10px;
+  margin-right: 5px;
+  font-size: 18px;
+  color: #1b263b;
+}
+.filter-button {
+  padding: 9px;
+  font-size: 20px;
+  color: #1b263b;
+  background-color: #e0e1dd;
+  width: 100px;
+}
 /* Media Queries
 @media screen and (min-width: 1000px) {
   .main-container {
