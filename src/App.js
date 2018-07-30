@@ -21,6 +21,7 @@ class App extends Component {
         { id: 10, position: { lat: 36.576634, lng: 26.384324 }, title: "Maltezana Village" }
       ],
       isOpen: false,
+      openMarker: null,
       pictures: [],
       indexValue: 0
     }
@@ -66,9 +67,10 @@ class App extends Component {
     }
     this.setState({ indexValue : currentIndex })
   }
-  onToggleOpen = () => {
+  onToggleOpen = (index) => {
     this.setState({
       isOpen: !this.state.isOpen,
+      openMarker: index
     })
   }
   render() {
@@ -78,16 +80,17 @@ class App extends Component {
           defaultCenter = {{ lat: 36.547583, lng: 26.345321 }}
           defaultZoom={ 12 }
       >
-        {this.state.markers.map((marker) => {
+        {this.state.markers.map((marker, index) => {
           return(
           <Marker
             key={marker.id}
             position={marker.position}
             title={marker.title}
             animation={google.maps.Animation.BOUNCE}
-            onClick={this.onToggleOpen}
+            onClick={() => this.onToggleOpen(index)}
+            openMarker={this.state.openMarker}
           >
-          {(this.state.isOpen) &&
+          {(this.state.openMarker === marker.id) &&
             (<InfoWindow onCloseClick={this.onToggleOpen}>
             <div>
               <div className="marker-name">{marker.title}</div>
