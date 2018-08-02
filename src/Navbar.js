@@ -2,6 +2,9 @@ import React from 'react'
 import { slide as Menu } from 'react-burger-menu'
 
 class Navbar extends React.Component {
+  componentDidMount() {
+    this.props.handleSearch('All')
+  }
   render() {
   return(
     <div className="navbar">

@@ -81,7 +81,7 @@ class App extends Component {
     this.setState({filteredMarkers: result})
     console.log(result)
 
-    if(value === 'All') {
+    if(value === 'All' || value === '') {
       this.setState({filteredMarkers: this.state.markers})
     }
   }
