@@ -9,21 +9,21 @@ class App extends Component {
 
     this.state={
       markers: [
-        { id: 1, position: { lat: 36.544206, lng: 26.355205 }, title: "Castle" },
-        { id: 2, position: { lat: 36.542438, lng: 26.343119 }, title: "Livadi Beach" },
-        { id: 3, position: { lat: 36.54743, lng: 26.353549 }, title: "Kolokitha Cafe" },
-        { id: 4, position: { lat: 36.548651, lng: 26.352387 }, title:"Museum" },
-        { id: 5, position: { lat: 36.560076, lng: 26.353936 }, title: "Camping Site" },
-        { id: 6, position: { lat: 36.543823, lng: 26.353998 }, title: "Infant Cemetery" },
-        { id: 7, position: { lat: 36.551026, lng: 26.328218 }, title: "Water Dam" },
-        { id: 8, position: { lat: 36.545627, lng: 26.351948 }, title: "Windmills"},
-        { id: 9, position: { lat: 36.53065, lng: 26.46749 }, title: "Kounoupes Beach"},
-        { id: 10, position: { lat: 36.576634, lng: 26.384324 }, title: "Maltezana Village" }
+        { id: 0, position: { lat: 36.544206, lng: 26.355205 }, title: "Castle" },
+        { id: 1, position: { lat: 36.542438, lng: 26.343119 }, title: "Livadi Beach" },
+        { id: 2, position: { lat: 36.54743, lng: 26.353549 }, title: "Kolokitha Cafe" },
+        { id: 3, position: { lat: 36.548651, lng: 26.352387 }, title:"Museum" },
+        { id: 4, position: { lat: 36.560076, lng: 26.353936 }, title: "Camping Site" },
+        { id: 5, position: { lat: 36.543823, lng: 26.353998 }, title: "Infant Cemetery" },
+        { id: 6, position: { lat: 36.551026, lng: 26.328218 }, title: "Water Dam" },
+        { id: 7, position: { lat: 36.545627, lng: 26.351948 }, title: "Windmills"},
+        { id: 8, position: { lat: 36.53065, lng: 26.46749 }, title: "Kounoupes Beach"},
+        { id: 9, position: { lat: 36.576634, lng: 26.384324 }, title: "Maltezana Village" }
       ],
       isOpen: false,
       openMarker: null,
       pictures: [],
-      indexValue: 0
+      indexValue: 0,
     }
     this.NextPhoto = this.NextPhoto.bind(this)
     this.PrevPhoto = this.PrevPhoto.bind(this)
@@ -32,7 +32,7 @@ class App extends Component {
 
   //Deals with the external API call from flickr
   componentDidMount() {
-    fetch('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=4730619e90f6124fa7ff46c19c600709&tags=Astypalaia,Astipalea&per_page=50&format=json&nojsoncallback=1')
+    fetch('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=4730619e90f6124fa7ff46c19c600709&tags=Astypalaia,Astipalea&sort=interestingness-desc&per_page=50&format=json&nojsoncallback=1')
       .then(function(response) {
         return response.json()
       })
@@ -67,6 +67,7 @@ class App extends Component {
     }
     this.setState({ indexValue : currentIndex })
   }
+  //Toggles open and close state of markers
   onToggleOpen = (index) => {
     this.setState({
       isOpen: !this.state.isOpen,
