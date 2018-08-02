@@ -15,7 +15,7 @@ class Navbar extends React.Component {
           onChange={(event) => this.props.handleSearch(event.target.value)}
         >
           <option value=''>--Please choose a location--</option>
-          <option value={this.props.markers}>All</option>
+          <option value='All'>All</option>
           {this.props.markers.map((marker, index) => {
             return(
               <option key={marker.id} value={marker.title}>{marker.title}</option>

@@ -80,6 +80,10 @@ class App extends Component {
     const result = this.state.markers.filter(marker => marker.title === value)
     this.setState({filteredMarkers: result})
     console.log(result)
+
+    if(value === 'All') {
+      this.setState({filteredMarkers: this.state.markers})
+    }
   }
   render() {
     const google = window.google
