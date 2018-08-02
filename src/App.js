@@ -24,10 +24,12 @@ class App extends Component {
       openMarker: null,
       pictures: [],
       indexValue: 0,
+      filteredMarkers: []
     }
     this.NextPhoto = this.NextPhoto.bind(this)
     this.PrevPhoto = this.PrevPhoto.bind(this)
     this.onToggleOpen = this.onToggleOpen.bind(this)
+    this.handleSearch = this.handleSearch.bind(this)
   }
 
   //Deals with the external API call from flickr
@@ -74,6 +76,11 @@ class App extends Component {
       openMarker: index
     })
   }
+  handleSearch(value) {
+    const result = this.state.markers.filter(marker => marker.title === value)
+    this.setState({filteredMarkers: result})
+    console.log(result)
+  }
   render() {
     const google = window.google
     const GoogleMapIsland = withGoogleMap(props => (
@@ -81,7 +88,7 @@ class App extends Component {
           defaultCenter = {{ lat: 36.547583, lng: 26.345321 }}
           defaultZoom={ 12 }
       >
-        {this.state.markers.map((marker, index) => {
+        {this.state.filteredMarkers.map((marker, index) => {
           return(
           <Marker
             key={marker.id}
@@ -111,7 +118,9 @@ class App extends Component {
       <div className="App">
           <Navbar
             markers={this.state.markers}
+            filteredMarkers={this.state.filteredMarkers}
             onToggleOpen={this.onToggleOpen}
+            handleSearch={this.handleSearch}
           />
         <div className="main-container">
           <div className='map-container'>
