@@ -34,6 +34,7 @@ class App extends Component {
 
   //Deals with the external API call from flickr
   componentDidMount() {
+    window.gm_authFailure = this.gm_authFailure;
     fetch('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=4730619e90f6124fa7ff46c19c600709&tags=Astypalaia,Astipalea&sort=interestingness-desc&per_page=50&format=json&nojsoncallback=1')
       .then(function(response) {
         return response.json()
@@ -47,6 +48,9 @@ class App extends Component {
         })
         this.setState({pictures: picArray})
       }.bind(this))
+      .catch(function(error) {
+        alert("Sorry. An error has occured with the photos.")
+      })
   }
 
 //Increments Photos
@@ -84,6 +88,10 @@ class App extends Component {
     if(value === 'All' || value === '') {
       this.setState({filteredMarkers: this.state.markers})
     }
+  }
+  //In case there is an error with google maps
+  gm_authFailure() {
+    alert('An error has occured with the map. Refresh the page or try again later')
   }
   render() {
     const google = window.google

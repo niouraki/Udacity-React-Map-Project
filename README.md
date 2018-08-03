@@ -8,3 +8,4 @@
 5. https://www.youtube.com/watch?v=TIuRHQEb-B4
 6. https://reactjs.org/docs/forms.html
 7. https://stackoverflow.com/questions/22752116/react-label-element
+8. https://developers.google.com/maps/documentation/javascript/events
