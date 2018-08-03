@@ -75,11 +75,11 @@ class App extends Component {
       isOpen: !this.state.isOpen,
       openMarker: index
     })
+      console.log(this.state.openMarker)
   }
   handleSearch(value) {
     const result = this.state.markers.filter(marker => marker.title === value)
     this.setState({filteredMarkers: result})
-    console.log(result)
 
     if(value === 'All' || value === '') {
       this.setState({filteredMarkers: this.state.markers})
@@ -101,7 +101,7 @@ class App extends Component {
             animation={google.maps.Animation.BOUNCE}
             onClick={() => this.onToggleOpen(index)}
           >
-          {(this.state.openMarker === marker.id) &&
+          {(this.state.openMarker === index) &&
             (<InfoWindow onCloseClick={this.onToggleOpen}>
             <div>
               <div className="marker-name">{marker.title}</div>
