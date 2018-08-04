@@ -27,7 +27,7 @@ class App extends Component {
       openMarker: null,
       pictures: [],
       indexValue: 0,
-      filteredMarkers: []
+      filteredMarkers: [],
     }
     this.NextPhoto = this.NextPhoto.bind(this)
     this.PrevPhoto = this.PrevPhoto.bind(this)
@@ -75,7 +75,7 @@ class App extends Component {
   onToggleOpen = (index) => {
     this.setState({
       isOpen: !this.state.isOpen,
-      openMarker: index
+      openMarker: index,
     })
       console.log(this.state.openMarker)
   }
@@ -97,6 +97,7 @@ class App extends Component {
   render() {
     //Here I found the answer for the google is not defined problem
     //https://stackoverflow.com/questions/43714895/google-is-not-defined-in-react-app-using-create-react-app
+    {/* Thank you Eman Zaghloul for explaining how to fix the animation so that it changes*/}
     const google = window.google
     const GoogleMapIsland = withGoogleMap(props => (
        <GoogleMap
@@ -110,7 +111,8 @@ class App extends Component {
             position={marker.position}
             title={marker.title}
             info={marker.info}
-            animation={google.maps.Animation.BOUNCE}
+
+            animation={this.state.openMarker === index ? google.maps.Animation.BOUNCE : null}
             onClick={() => this.onToggleOpen(index)}
           >
           {(this.state.openMarker === index) &&
@@ -130,7 +132,7 @@ class App extends Component {
           </Marker>
         )})}
     </GoogleMap>
-      ))
+  ))
     return (
       <div className="App">
           <Navbar
@@ -140,7 +142,7 @@ class App extends Component {
             handleSearch={this.handleSearch}
           />
         <div>
-          <div className='map-container'>
+          <div className='map-container' tabIndex="0" aria-label="The map of Astypalaia island" role="application">
           <GoogleMapIsland
           loadingElement={<div style={{height: '100%'}}/>}
           googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz0bCTLihf_bkR1D6Pixn2qEAz25A9qzY&v=3.exp&libraries=geometry,drawing,place"

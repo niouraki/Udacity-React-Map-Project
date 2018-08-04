@@ -22,10 +22,10 @@ class Navbar extends React.Component {
   return(
     <div className="navbar">
     <h1 tabIndex="0">The island of Astypalaia</h1>
-    <button className="hamburger"><i className="fa fa-bars fa-4x" onClick={this.openWidth}/></button>
+    <button className="hamburger" aria-label="Open the list to select the markers"><i className="fa fa-bars fa-4x" onClick={this.openWidth}/></button>
     {/*https://stackoverflow.com/questions/37827279/add-a-state-property-to-an-inline-style-in-react  Here I found the idea to put visibility in inline styling*/}
-    <div id="info-list" className="info-list" style={{visibility: this.state.visibility}}>
-    <button className="close-button"><i className="fa fa-times fa-3x" onClick={this.closeWidth}/></button>
+    <div className="info-list" aria-label="The list of markers that appear on the map" style={{visibility: this.state.visibility}}>
+    <button className="close-button" aria-label="Close the list of markers"><i className="fa fa-times fa-3x" onClick={this.closeWidth}/></button>
     <form>
       <div>
       {/* https://blog.logrocket.com/an-imperative-guide-to-forms-in-react-927d9670170a   https://reactjs.org/docs/forms.html  Here I found info about forms in react*/}
