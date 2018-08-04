@@ -11,16 +11,17 @@ class App extends Component {
 
     this.state={
       markers: [
-        { id: 0, position: { lat: 36.544206, lng: 26.355205 }, title: "Castle", info: <a href="https://www.greeka.com/dodecanese/astypalea/astypalea-excursions/venetian-castle.htm" target="_blank" rel="noopener noreferrer">Click for more information</a> },
-        { id: 1, position: { lat: 36.542438, lng: 26.343119 }, title: "Livadi Beach", info: <a href="https://www.greeka.com/dodecanese/astypalea/astypalea-beaches/astypalea-livadi_beach.htm" target="_blank" rel="noopener noreferrer">Click for more information</a> },
-        { id: 2, position: { lat: 36.54743, lng: 26.353549 }, title: "Kolokitha Cafe", info: <a href="https://astypalaia-island.gr/fagito-poto/kolokitha" target="_blank" rel="noopener noreferrer">Click for more information</a> },
-        { id: 3, position: { lat: 36.548651, lng: 26.352387 }, title:"Museum", info: <a href="https://www.gtp.gr/TDirectoryDetails.asp?ID=4309" target="_blank" rel="noopener noreferrer">Click for more information</a> },
-        { id: 4, position: { lat: 36.560076, lng: 26.353936 }, title: "Camping Site", info: <a href="http://www.astypalaiacamping.gr/?lang=en" target="_blank" rel="noopener noreferrer">Click for more information</a> },
-        { id: 5, position: { lat: 36.543823, lng: 26.353998 }, title: "Infant Cemetery", info: <a href="http://www.aegeanislands.gr/islands/astypalea/TheInfantCemeteryofAstypalea.html" target="_blank" rel="noopener noreferrer">Click for more information</a> },
-        { id: 6, position: { lat: 36.551026, lng: 26.328218 }, title: "Water Dam", info: <a href="https://www.greeka.com/dodecanese/astypalea/astypalea-villages/astypalea-livadi.htm" target="_blank" rel="noopener noreferrer">Click for more information</a> },
-        { id: 7, position: { lat: 36.545627, lng: 26.351948 }, title: "Windmills", info: <a href="https://astypalaia-island.gr/sights/windmills-in-chora-astypalaia" target="_blank" rel="noopener noreferrer">Click for more information</a> },
-        { id: 8, position: { lat: 36.53065, lng: 26.46749 }, title: "Kounoupes Beach", info: <a href="https://astypalaia-island.gr/eng" target="_blank" rel="noopener noreferrer">Click for more information</a> },
-        { id: 9, position: { lat: 36.576634, lng: 26.384324 }, title: "Maltezana Village", info: <a href="https://astypalaia-island.gr/eng" target="_blank" rel="noopener noreferrer">Click for more information</a> }
+        { id: 0, position: { lat: 36.544206, lng: 26.355205 }, title: "Castle", info: <a href="https://www.greeka.com/dodecanese/astypalea/astypalea-excursions/venetian-castle.htm" aria-label="Read more about the castle" target="_blank" rel="noopener noreferrer">Click for more information</a> },
+        { id: 1, position: { lat: 36.542438, lng: 26.343119 }, title: "Livadi Beach", info: <a href="https://www.greeka.com/dodecanese/astypalea/astypalea-beaches/astypalea-livadi_beach.htm" aria-label="Read more about Livadi beach" target="_blank" rel="noopener noreferrer">Click for more information</a> },
+        { id: 2, position: { lat: 36.54743, lng: 26.353549 }, title: "Kolokitha Cafe", info: <a href="https://astypalaia-island.gr/fagito-poto/kolokitha" aria-label=" Read more about Kolokitha Cafe" target="_blank" rel="noopener noreferrer">Click for more information</a> },
+        { id: 3, position: { lat: 36.548651, lng: 26.352387 }, title:"Museum", info: <a href="https://www.gtp.gr/TDirectoryDetails.asp?ID=4309" aria-label=" Read more about the museum" target="_blank" rel="noopener noreferrer">Click for more information</a> },
+        { id: 4, position: { lat: 36.560076, lng: 26.353936 }, title: "Camping Site", info: <a href="http://www.astypalaiacamping.gr/?lang=en" aria-label="Read more about the camping site" target="_blank" rel="noopener noreferrer">Click for more information</a> },
+        { id: 5, position: { lat: 36.543823, lng: 26.353998 }, title: "Infant Cemetery", info: <a href="http://www.aegeanislands.gr/islands/astypalea/TheInfantCemeteryofAstypalea.html" aria-label="Read more about the infant cemetery" target="_blank" rel="noopener noreferrer">Click for more information</a> },
+        { id: 6, position: { lat: 36.551026, lng: 26.328218 }, title: "Water Dam", info: <a href="https://www.greeka.com/dodecanese/astypalea/astypalea-villages/astypalea-livadi.htm" aria-label="Read more about Livadi area and the water dam" target="_blank" rel="noopener noreferrer">Click for more information</a> },
+        { id: 7, position: { lat: 36.545627, lng: 26.351948 }, title: "Windmills", info: <a href="https://astypalaia-island.gr/sights/windmills-in-chora-astypalaia" aria-label="Read more about the windmills" target="_blank" rel="noopener noreferrer">Click for more information</a> },
+        { id: 8, position: { lat: 36.53065, lng: 26.46749 }, title: "Kounoupes Beach", info: <a href="https://astypalaia-island.gr/eng" aria-label="Read more about Kounoupes beach" target="_blank" rel="noopener noreferrer">Click for more information</a> },
+        { id: 9, position: { lat: 36.576634, lng: 26.384324 }, title: "Maltezana Village", info: <a href="https://astypalaia-island.gr/eng" aria-label="Read more about Maltezaba village" target="_blank" rel="noopener noreferrer">Click for more information</a> },
+        { id: 10, position: { lat: 36.547354, lng: 26.353193 }, title: "My home"}
       ],
       isOpen: false,
       openMarker: null,
@@ -32,6 +33,7 @@ class App extends Component {
     this.PrevPhoto = this.PrevPhoto.bind(this)
     this.onToggleOpen = this.onToggleOpen.bind(this)
     this.handleSearch = this.handleSearch.bind(this)
+    this.gm_authFailure = this.gm_authFailure.bind(this)
   }
 
   //Deals with the external API call from flickr
@@ -47,7 +49,7 @@ class App extends Component {
         let picArray = j.photos.photo.map((pic) => {
           var srcPath = 'https://farm'+pic.farm+'.staticflickr.com/'+pic.server+'/'+pic.id+'_'+pic.secret+'.jpg'
             return(
-              <img alt="Astypalaia island" src={srcPath}/>
+              <img alt="Images of Astypalaia island" src={srcPath}/>
             )
         })
         this.setState({pictures: picArray})
@@ -93,6 +95,8 @@ class App extends Component {
     alert('An error has occured with the map. Refresh the page or try again later')
   }
   render() {
+    //Here I found the answer for the google is not defined problem
+    //https://stackoverflow.com/questions/43714895/google-is-not-defined-in-react-app-using-create-react-app
     const google = window.google
     const GoogleMapIsland = withGoogleMap(props => (
        <GoogleMap
@@ -111,15 +115,15 @@ class App extends Component {
           >
           {(this.state.openMarker === index) &&
             (<InfoWindow onCloseClick={this.onToggleOpen}>
-            <div>
-              <div className="marker-name">{marker.title}</div>
+            <div style={{maxHeight: "500px"}}>
+              <div className="marker-name" tabIndex="0">{marker.title}</div>
               <div>{this.state.pictures[this.state.indexValue]}</div>
               <div>
-              <button className="photo-button" onClick={this.PrevPhoto}>Prev</button>
-              <button className="photo-button" onClick={this.NextPhoto}>Next</button>
+              <button className="photo-button" aria-label="Go to previous photo" onClick={this.PrevPhoto}>Prev</button>
+              <button className="photo-button" aria-label="Go to next photo" onClick={this.NextPhoto}>Next</button>
               </div>
               <div className="info">{marker.info}</div>
-              <div className="source">Images Source: Flickr</div>
+              <div className="source" tabIndex="0">Images Source: Flickr</div>
             </div>
             </InfoWindow>)
           }
