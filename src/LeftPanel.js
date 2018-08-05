@@ -12,6 +12,7 @@ class LeftPanel extends React.Component {
         <div>
         {/* https://blog.logrocket.com/an-imperative-guide-to-forms-in-react-927d9670170a   https://reactjs.org/docs/forms.html  Here I found info about forms in react*/}
         {/* https://stackoverflow.com/questions/22752116/react-label-element  Here I found the answer for htmlFor instead of just for*/}
+        {/*https://stackoverflow.com/questions/37827279/add-a-state-property-to-an-inline-style-in-react  Here I found the idea to put visibility in inline styling*/}
         <label htmlFor='location-select' className="my-label">
           Pick an interesting location:
           <select
