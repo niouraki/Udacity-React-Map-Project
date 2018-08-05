@@ -1,21 +1,20 @@
-.App {
-  display: flex;
-  flex-direction: column;
-}
 .navbar {
-  display: block;
-  width: 100%;
-  padding: 12px;
+  position: fixed;
+  height: 11%;
+  z-index: 1;
+  right: 0;
+  left: 0;
   background: #415a77;
   text-align: center;
   color: #e0e1dd;
 }
 .map-container {
   position: absolute;
-  width: 100%;
+  right: 0;
+  left: 0;
   height: 90%;
+  width: 100%;
   bottom: 0;
-  border: 1px solid #e0e1dd;
 }
 .marker-name {
   text-align: center;
@@ -24,51 +23,59 @@
 }
 .info {
   text-align: center;
-  font-size: 18px;
+  font-size: 17px;
 }
 .source {
   text-align: center;
-  font-size: 17px;
+  font-size: 15px;
 }
 .photo-button {
   position: relative;
-  left: 40%;
+  left: 30%;
   margin: 5px;
 }
-
+h1 {
+  font-size: 19px;
+  text-align: center;
+  margin-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 /*Styling for drop-down menu*/
 .hamburger {
   position: absolute;
-  top: 2%;
-  left: 50px;
+  font-size: 45%;
+  top: 16%;
+  left: 5%;
   cursor: pointer;
   background-color: #415a77;
   border: none;
 }
-.close-button{
+.close-button {
   position: absolute;
-  right: 8px;
+  right: 1%;
   top:0;
   cursor: pointer;
   background-color: #1b263b;
   color: #e0e1dd;
   border: none;
+  font-size: 8px;
 }
 .info-list  {
-  position: fixed;
-  width: 20%;
+  position: absolute;
+  width: 60%;
+  margin-top: 50px;
   z-index: 1;
-  margin-top: 30px;
-  padding: 20px 20px 20px 20px;
+  padding: 5px 20px 5px 20px;
   background-color: #1b263b;
+  overflow-y: auto;
 }
 .button {
-  font-size: 18px;
+  font-size: 14px;
   text-decoration: none;
   background: #1b263b;
-  border: none;
   color: #e0e1dd;
-  padding: 10px;
+  padding: 3px;
   cursor: pointer;
   width: 100%;
 }
@@ -76,20 +83,70 @@
   background: #e0e1dd;
   color: #1b263b;
 }
+.button:active {
+  background: #e0e1dd;
+  color: #1b263b;
+}
 .my-label {
-  font-size: 20px;
+  font-size: 15px;
+  color: #e0e1dd;
 }
 #location-select {
-  padding: 8px;
-  margin-left: 10px;
+  width: 100%;
 }
-/* Media Queries
-@media screen and (min-width: 1000px) {
-  .main-container {
-    display: grid;
-    grid-template-columns: 20% 80%;
+
+/*End of styling for drop-down menu*/
+
+/* Media Queries*/
+@media screen and (min-width: 700px) {
+  .navbar {
+    height: 10%;
   }
-  .map-container {
-    left: 20%;
+  h1 {
+    font-size: 40px;
   }
-}*/
+  .fa-bars {
+    margin-top: 18px;
+    font-size: 60px;
+  }
+  .info-list  {
+    position: absolute;
+    width: 50%;
+    margin-top: 50px;
+    z-index: 1;
+    padding: 25px 20px 25px 20px;
+    background-color: #1b263b;
+    overflow-y: auto;
+  }
+  .button {
+    font-size: 20px;
+    text-decoration: none;
+    background: #1b263b;
+    color: #e0e1dd;
+    padding: 12px;
+    cursor: pointer;
+    width: 100%;
+  }
+  .my-label {
+    font-size: 20px;
+  }
+  #location-select {
+    width: 100%;
+    padding: 5px;
+  }
+  .fa-times {
+    font-size: 30px;
+  }
+  .marker-name {
+    font-size: 20px;
+  }
+  .info {
+    font-size: 18px;
+  }
+  .source {
+    font-size: 17px;
+  }
+  .photo-button {
+    margin: 8px;
+  }
+}
